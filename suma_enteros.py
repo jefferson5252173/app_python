@@ -1,69 +1,61 @@
- #---------------------------------
-# Desktop app No. 1
-#---------------------------------
-
-# se importa la libreria tkinter con todas sus funciones 
 from tkinter import *
 
-#----------------------------
-# funciones de la app
-#----------------------------
 
-#-----------------------------
-# ventana principal de la app
-#-----------------------------
+ventana_principal= Tk()
 
-# se declara una variable llamada ventana_principal, que adquiere las caracteristicas de un objeto Tk()
-ventana_principal = Tk()
+ventana_principal.title("suma de enteros")
 
-# TAMAÑO DE LA VENTANA 
 ventana_principal.geometry("500x500")
 
-# TITULO DE VENTANA
-ventana_principal.title("SUMA ENTEROS 1.0")
+ventana_principal.resizable(False,False)
 
-# DESHABILITAR BOTON DE MAXIMIZAR
-ventana_principal.resizable(False, False)
+# color de la ventana
+ventana_principal.config(bg=("red"))
 
-# COLOR DE FONDO DE LA VENTANA 
-ventana_principal.config(bg="red")
-
-#-------------------------
-# FRAMA ENTRADA DATOS
-#-------------------------
+# frame de entrada de datosf
 frame_entrada = Frame(ventana_principal)
 frame_entrada.config(bg="white", width=480, height=180)
 frame_entrada.place(x=10, y=10)
 
-
-# LOGO DE LA APP 
-logo = PhotoImage(file="img/escudo_guanenta.png")
-lb_logo = Label(frame_entrada, image=logo, bg="white")
+# logo de la app
+logo=PhotoImage(file="img/escudo_guanenta.png")
+lb_logo=Label(frame_entrada, image=logo, bg="white")
 lb_logo.place(x=70,y=40)
 
-
-# TITULO DE APP 
-titulo = Label(frame_entrada, text="suma_enteros_1.0")
-titulo.config(bg="red", fg="white", font=("hervical", 20))
+# titulo de la app
+titulo=Label(frame_entrada, text="suma enteros 1.0")
+titulo.config(bg="red", fg="white", font=("Arial",16))
 titulo.place(x=240,y=10)
 
+# etiqueta para valor de x
+lb_x = Label(frame_entrada, text = "x = ")
+lb_x.config(bg="white", fg="red", font=("helvetica", 18))
+lb_x.place(x=240, y=60)
 
 
-#-------------------------
-# FRAMA OPERACIONES
-#-------------------------
+entry_x = Entry(frame_entrada)
+entry_x.config (bg="white", fg="red", font=("tienes new roman", 18), width=6)
+entry_x.focus_set()
+entry_x.place(x=290, y=60)
+
+# etiqueta para valor de y
+lb_y = Label(frame_entrada, text = "y = ")
+lb_y.config(bg="white", fg="red", font=("helvetica", 18))
+lb_y.place(x=240, y=120)
+
+entry_y = Entry(frame_entrada)
+entry_y.config (bg="white", fg="red", font=("tienes new roman", 18), width=6)
+entry_y.focus_set()
+entry_y.place(x=290, y=120)
+
+# frame de operacion
 frame_operaciones = Frame(ventana_principal)
 frame_operaciones.config(bg="white", width=480, height=100)
 frame_operaciones.place(x=10, y=200)
 
-#-------------------------
-# FRAMA RESULTADOS
-#-------------------------
-frame_resultados = Frame(ventana_principal)
-frame_resultados.config(bg="white", width=480, height=180)
-frame_resultados.place(x=10, y=310)
+# frame del resultado
+frame_resultado = Frame(ventana_principal)
+frame_resultado.config(bg="white", width=480, height=180)
+frame_resultado.place(x=10, y=310)
 
-# run 
-# SE EJECUTA EL METODO MAINLOOP() DE LA CLASE TK() A TRAVES DE LA INSTANCIA DE LA INTANCIA ventana_principal. Este metodo despliega la ventana en pantalla y queda a la espera de le que el usuario haga (click en un boton, escribir, etc). Cada accion del usuario se conoce como unn evento. El método mainloop() es un bucle infinito.
 ventana_principal.mainloop()
-
